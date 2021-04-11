@@ -1,0 +1,29 @@
+
+pr = mechanize.Browser()
+pr.set_handle_robots(False)
+headers=[
+    ('User-Agent','Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36')
+]
+pr.headers=headers
+resp = pr.open('https://www.flipkart.com/vebnor-brocade-woven-kurta-palazzo-material/p/itm12d3d9269cc33?pid=FABFX8F7QHECGMBJ&lid=LSTFABFX8F7QHECGMBJP4J5GP&marketplace=FLIPKART&srno=b_1_1&otracker=hp_rich_navigation_3_1.navigationCard.RICH_NAVIGATION_Fashion~Women%2BEthnic_HQXTE43PO8HC&fm=organic&iid=en_3rAOGFKn5aKnfpT%2FrLpNUsDSPsrRWSzdNiT4j5bA%2BLtwropu42Js0Tu2R19tKb75jJMo9vMo8w03A1aoEXNEiw%3D%3D&ssid=aqd2ab3dkg0000001613477201861')
+resp_text=resp.read()
+
+name = re.findall(r'<span class="B_NuCI">(.*?)<',str(resp_text))
+
+name
+
+
+
+sp = re.findall(r'<div class="_30jeq3 _16Jk6d">(.*?)<',str(resp_text))[0]
+price = re.findall(r'div class="_3I9_wc _2p6lqe">(.*?)<',str(resp_text))[0]
+discount = re.findall(r'<div class="_3Ay6Sb _31Dcoz pZkvcx"><span>(.*?)<',str(resp_text))[0]
+
+discount
+
+
+
+rating = re.findall(r'<div class="_3LWZlK _3uSWvT">(.*?)<',str(resp_text))[0]
+
+rating
+
+
